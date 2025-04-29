@@ -22,7 +22,9 @@ app.use(bodyParser.json());
 app.use(express.static('public/public'));
 //app.use('/src', express.static('src'));
 
-const db = new sqlite3.Database('cadastros.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+const dbPath = path.resolve('cadastros.db');
+console.log(`\x1b[36m[INFO] Usando banco de dados em: ${dbPath}\x1b[0m`);
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err.message);
         return;
