@@ -21,7 +21,7 @@ describe('US-012-Funcionalidade: Cadastro de membros', () => {
     cy.get('#signup-response').should('contain', 'E-mail deve ser um email válido')
   })
 
-  it.only('Deve validar a mensagem de erro com o campo senha fraca', () => {
+  it('Deve validar a mensagem de erro com o campo senha fraca', () => {
     cy.preencherCadastro('Luan', 'Silva', 'luan@email.com', '11999999999', '123456')
     cy.get('#signup-response').should('contain', 'Senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula')
   })
